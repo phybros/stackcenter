@@ -1,0 +1,7 @@
+backend/venv
+.DS_Store
+.git
+frontend/node_modules
+.vscode
+.github
+**/*.sqlite
