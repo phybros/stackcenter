@@ -1,7 +1,6 @@
 import base64
 import subprocess
 import uuid
-
 import docker
 from flask import Flask, jsonify, request
 from flask_cors import CORS
@@ -91,7 +90,7 @@ def all_stacks():
     result = []
     external_stack_names = []
 
-    for container in client.containers.list():
+    for container in client.containers.list(all=True):
         for label, v in container.labels.items():
             if label == LABEL_COM_DOCKER_COMPOSE_PROJECT:
                 if v not in external_stack_names:
@@ -182,7 +181,11 @@ def one_container(container_id):
         if label == LABEL_COM_DOCKER_COMPOSE_PROJECT:
             custom_stuff['Stack'] = v
 
-    return jsonify({**container.attrs, **{'StackCenter': custom_stuff}})
+    name = {
+        'Name': container.name.lstrip('/')
+    }
+
+    return jsonify({**container.attrs, **{'StackCenter': custom_stuff}, **name})
 
 
 @stackcenterapp.route('/api/stacks/<stack_id>/containers', methods=['GET'])
@@ -195,7 +198,7 @@ def containers_in_stack(stack_id):
     }
 
     result = []
-    for container in client.containers.list():
+    for container in client.containers.list(all=True):
         for label, v in container.labels.items():
             if label == LABEL_COM_DOCKER_COMPOSE_PROJECT:
                 if v == stack.name:

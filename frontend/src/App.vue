@@ -56,6 +56,16 @@
 
       <v-toolbar-title>{{ $route.meta.title }}</v-toolbar-title>
 
+
+      <v-progress-linear
+        :active="this.$store.state.appLoading"
+        :indeterminate="this.$store.state.appLoading"
+        :hidden="!this.$store.state.appLoading"
+        absolute
+        bottom
+        color="blue"
+      ></v-progress-linear>
+
       <v-spacer></v-spacer>
 
        <v-btn icon @click="darkMode()">

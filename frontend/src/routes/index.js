@@ -37,7 +37,7 @@ var router = new VueRouter({
       name: "Stack",
       component: Stack,
       meta: {
-        title: "Stack",
+        title: "Stack Details",
       },
     },
     {
@@ -53,7 +53,7 @@ var router = new VueRouter({
       name: "Container",
       component: Container,
       meta: {
-        title: "Container",
+        title: "Container Details",
       },
     },
     {

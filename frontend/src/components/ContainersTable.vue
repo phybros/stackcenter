@@ -18,6 +18,9 @@
         :search="search"
         :items="containers"
         :items-per-page="10"
+        :loading="this.$store.state.appLoading"
+        loading-text="Loading containers..."
+        sort-by="Name"
         show-select
         item-key="Id"
       >
