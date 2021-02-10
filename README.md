@@ -15,9 +15,11 @@ for things like Kubernetes.
  - Inspect/modify/delete networks, volumes and images!
  - Dark Mode 😎
  
-## Screenshot
+## Screenshots
 
-coming soon
+![Containers view](screenshots/containers-small.png)
+
+![Creating a new stack](screenshots/newstack-small.png)
 
 ## Technology
 
