@@ -1,3 +1,6 @@
+# Project has been archived
+Archived 2021-05-04
+
 # StackCenter
 A UI for managing docker containers and docker-compose stacks.
 
